@@ -184,9 +184,49 @@ export function PortfolioComponent() {
                   <ul className="space-y-3 text-gray-300">
                     <li className="flex items-start">
                       <span className="text-purple-400 mr-2">•</span>
-                      <span>Develops LLM-focused contents, including a total of 14 cookbooks, tech blogs, tutorial, while managing company social media by sharing technical content to drive engagement</span>
+                      <span>Develops LLM-focused contents, including a total of 14 cookbooks, tech blogs, tutorials, while managing company social media by sharing technical content to drive engagement:</span>
                     </li>
-                    <li className="flex items-start">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 ml-6">
+                      <a href="https://github.com/UpstageAI/cookbook" 
+                         target="_blank" 
+                         rel="noopener noreferrer"
+                         className="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
+                        <div className="flex items-center space-x-3">
+                          <Github className="h-5 w-5 text-purple-400" />
+                          <div>
+                            <div className="font-semibold text-white">Cookbooks</div>
+                            <div className="text-sm text-gray-300">14+ LLM Examples</div>
+                          </div>
+                        </div>
+                      </a>
+                      
+                      <a href="https://medium.com/@hsookim203" 
+                         target="_blank" 
+                         rel="noopener noreferrer"
+                         className="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
+                        <div className="flex items-center space-x-3">
+                          <Globe className="h-5 w-5 text-purple-400" />
+                          <div>
+                            <div className="font-semibold text-white">Tech Blogs</div>
+                            <div className="text-sm text-gray-300">Medium Articles</div>
+                          </div>
+                        </div>
+                      </a>
+                      
+                      <a href="https://x.com/soo_devrel/media" 
+                         target="_blank" 
+                         rel="noopener noreferrer"
+                         className="block p-4 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
+                        <div className="flex items-center space-x-3">
+                          <Globe className="h-5 w-5 text-purple-400" />
+                          <div>
+                            <div className="font-semibold text-white">Tutorials</div>
+                            <div className="text-sm text-gray-300">Video Content</div>
+                          </div>
+                        </div>
+                      </a>
+                    </div>
+                    <li className="flex items-start mt-4">
                       <span className="text-purple-400 mr-2">•</span>
                       <span>Assists in organizing and participating in 2 hackathons and developer meetups, providing support by answering participant questions and gathering feedback on Upstage's Document AI and Multimodal LLM products</span>
                     </li>
