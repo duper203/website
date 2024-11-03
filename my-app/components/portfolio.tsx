@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Github, Linkedin, Mail, Home, Briefcase, GraduationCap, Folder, Award, Phone, Globe } from 'lucide-react'
+import { Github, Linkedin, Mail, Home, Briefcase, GraduationCap, Folder, Award, Phone, Globe, User } from 'lucide-react'
 
 export function PortfolioComponent() {
   const [activeSection, setActiveSection] = useState('')
@@ -76,11 +76,11 @@ export function PortfolioComponent() {
           <nav className="space-y-4">
             {[
               { id: 'home', icon: Home, label: 'Home' },
+              { id: 'about', icon: User, label: 'About' },
               { id: 'experience', icon: Briefcase, label: 'Experience' },
               { id: 'projects', icon: Folder, label: 'Projects' },
               { id: 'skills', icon: Award, label: 'Skills' },
-              { id: 'achievements', icon: Award, label: 'Awards & Certificates' },
-              { id: 'contact', icon: Phone, label: 'Contact' },
+              { id: 'achievements', icon: Award, label: 'Awards & Certificates' }
             ].map((item) => (
               <button
                 key={item.id}
@@ -112,25 +112,30 @@ export function PortfolioComponent() {
               <div className="text-center">
                 <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent animate-gradient">Hyesoo Kim</h1>
                 <p className="text-xl mb-8 text-gray-300">Developer Relations | Software Engineer | AI Enthusiast</p>
-                <Button className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-                  View My Work
-                </Button>
               </div>
 
               {/* Right Column - About & Education */}
               <div className="space-y-6">
                 {/* About Me Section */}
                 <div>
-                  <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">About Me</h2>
-                  <Card className="bg-gray-800 border-gray-700">
-                    <CardContent className="pt-6">
-                      <p className="mb-4 text-gray-300">
-                        I'm a passionate Developer Relations professional and Software Engineer with a strong background in AI and cloud technologies. 
-                        Currently pursuing a B.S. in Computer Science at Sookmyung Women's University, I've gained valuable experience through various roles and projects, 
-                        focusing on LLM development, cloud solutions, and innovative AI applications.
-                      </p>
-                    </CardContent>
-                  </Card>
+                  <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">About Me</h2>
+                  <div className="space-y-6 text-gray-300">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-lg">Currently @ </span>
+                      <span className="text-lg font-semibold text-purple-400">Upstage</span>
+                      <span className="text-lg">in California</span>
+                      <span className="text-xl" role="img" aria-label="USA flag">🇺🇸</span>
+                    </div>
+                    
+                    <div>
+                      <p className="text-lg mb-2">Interest:</p>
+                      <div className="flex gap-3">
+                        <span className="bg-[#2D3B55] text-[#5B8DEF] px-4 py-1 rounded-md">AI</span>
+                        <span className="bg-[#2D3B55] text-[#5B8DEF] px-4 py-1 rounded-md">Open Source</span>
+                        <span className="bg-[#2D3B55] text-[#5B8DEF] px-4 py-1 rounded-md">Cloud</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Education Section */}
@@ -712,29 +717,6 @@ export function PortfolioComponent() {
                   </div>
                 </div>
               </div>
-            </section>
-
-            <section id="contact" className="mb-16">
-              <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">Contact Me</h2>
-              <Card className="bg-gray-800 border-gray-700">
-                <CardContent className="pt-6">
-                  <form className="space-y-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-1 text-gray-300">Name</label>
-                      <input id="name" className="w-full p-2 bg-gray-700 border border-gray-600 rounded text-gray-100" type="text" required />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-1 text-gray-300">Email</label>
-                      <input id="email" className="w-full p-2 bg-gray-700 border border-gray-600 rounded text-gray-100" type="email" required />
-                    </div>
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium mb-1 text-gray-300">Message</label>
-                      <textarea id="message" className="w-full p-2 bg-gray-700 border border-gray-600 rounded text-gray-100" rows={4} required></textarea>
-                    </div>
-                    <Button type="submit" className="bg-purple-600 hover:bg-purple-700 text-white">Send Message</Button>
-                  </form>
-                </CardContent>
-              </Card>
             </section>
           </main>
         </div>
