@@ -45,10 +45,9 @@ export function PortfolioComponent() {
 
   return (
     <div className="min-h-screen bg-[#111827] text-gray-100 font-sans">
-      <div className="flex">
-        {/* Sidebar */}
-        <aside className="w-64 h-screen sticky top-0 bg-[#1F2937] p-6 flex flex-col">
-          <div className="mb-8">
+      <div className="lg:flex block">
+        <aside className="lg:w-64 lg:h-screen lg:sticky lg:top-0 bg-[#1F2937] p-4 lg:p-6 flex flex-col">
+          <div className="mb-4 lg:mb-8">
             <h2 className="text-2xl font-bold text-white">Hyesoo Kim</h2>
             <p className="text-sm text-gray-400 mb-4">Developer Relations | Software Engineer</p>
             <div className="flex space-x-2 mb-4">
@@ -70,10 +69,12 @@ export function PortfolioComponent() {
               </Button>
               
             </div>
-            <p className="text-xs text-gray-400">+82 1092118325</p>
-            <p className="text-xs text-gray-400">hsookim203@gmail.com</p>
+            <div className="flex lg:block space-x-4 lg:space-x-0">
+              <p className="text-xs text-gray-400">+82 1092118325</p>
+              <p className="text-xs text-gray-400">hsookim203@gmail.com</p>
+            </div>
           </div>
-          <nav className="space-y-4">
+          <nav className="flex lg:block overflow-x-auto pb-2 lg:pb-0 space-x-2 lg:space-x-0 lg:space-y-4">
             {[
               { id: 'home', icon: Home, label: 'Home' },
               { id: 'about', icon: User, label: 'About' },
@@ -85,38 +86,34 @@ export function PortfolioComponent() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`flex items-center space-x-2 w-full p-2 rounded-lg transition-colors duration-200 ${
+                className={`flex items-center whitespace-nowrap lg:w-full p-2 rounded-lg transition-colors duration-200 ${
                   activeSection === item.id 
                     ? 'bg-gray-700 text-white' 
                     : 'text-gray-400 hover:bg-gray-700/50 hover:text-white'
                 }`}
               >
                 <item.icon className="h-5 w-5" />
-                <span>{item.label}</span>
+                <span className="ml-2">{item.label}</span>
               </button>
             ))}
           </nav>
 
-          <div className="mt-auto pt-4 border-t border-gray-700">
+          <div className="hidden lg:block mt-auto pt-4 border-t border-gray-700">
             <p className="text-xs font-medium text-purple-400">© Hyesoo Kim</p>
             <p className="text-xs text-gray-400 mt-1">Last updated: Oct 2024</p>
             <p className="text-xs italic text-gray-500 mt-2">Made with React</p>
           </div>
         </aside>
 
-        {/* Main Content */}
         <div className="flex-1 overflow-hidden">
           <main className="container mx-auto px-4 py-8 animate-fadeIn">
-            <section id="home" className="min-h-screen grid grid-cols-2 gap-8 items-center">
-              {/* Left Column - Home */}
+            <section id="home" className="min-h-screen grid lg:grid-cols-2 grid-cols-1 gap-8 items-center">
               <div className="text-center">
                 <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent animate-gradient">Hyesoo Kim</h1>
                 <p className="text-xl mb-8 text-gray-300">Developer Relations | Software Engineer | AI Enthusiast</p>
               </div>
 
-              {/* Right Column - About & Education */}
               <div className="space-y-6">
-                {/* About Me Section */}
                 <div>
                   <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">About Me</h2>
                   <div className="space-y-6 text-gray-300">
@@ -138,7 +135,6 @@ export function PortfolioComponent() {
                   </div>
                 </div>
 
-                {/* Education Section */}
                 <div>
                   <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">Education</h2>
                   <Card className="bg-gray-800 border-gray-700">
@@ -160,7 +156,6 @@ export function PortfolioComponent() {
             <section id="experience" className="mb-16">
               <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">Work Experience</h2>
               
-              {/* Upstage */}
               <Card className="mb-6 bg-gray-800 border-gray-700 hover:border-purple-400 transition-all duration-300">
                 <CardHeader className="pb-4">
                   <div className="flex justify-between items-start">
@@ -184,7 +179,7 @@ export function PortfolioComponent() {
                   <ul className="space-y-3 text-gray-300">
                     <li className="flex items-start">
                       <span className="text-purple-400 mr-2">•</span>
-                      <span>Develops LLM-focused contents, including a total of 14 cookbooks, tech blogs, tutorials, while managing company social media by sharing technical content to drive engagement:</span>
+                      <span>Develops LLM-focused contents, including:</span>
                     </li>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 ml-6">
                       <a href="https://github.com/UpstageAI/cookbook" 
@@ -238,7 +233,6 @@ export function PortfolioComponent() {
                 </CardContent>
               </Card>
 
-              {/* BoxLadder */}
               <Card className="bg-gray-800 border-gray-700 hover:border-purple-400 transition-all duration-300">
                 <CardHeader className="pb-4">
                   <div className="flex justify-between items-start">
@@ -276,9 +270,7 @@ export function PortfolioComponent() {
             <section id="projects" className="mb-16">
               <h2 className="text-3xl font-bold mb-8 text-purple-400">Projects</h2>
               
-              {/* Projects Grid Container */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* EPL Predictor */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <Card className="bg-[#1F2937] p-8 rounded-xl">
                   <div className="space-y-4">
                     <div className="flex justify-between items-start">
@@ -312,7 +304,6 @@ export function PortfolioComponent() {
                   </div>
                 </Card>
 
-                {/* Tech Support Chatbot */}
                 <Card className="bg-[#1F2937] p-8 rounded-xl">
                   <div className="space-y-4">
                     <div className="flex justify-between items-start">
@@ -324,7 +315,6 @@ export function PortfolioComponent() {
                         <span className="text-gray-400 text-sm mt-1">Switzerland</span>
                       </div>
                     </div>
-                    {/* LLM Label */}
                     <span className="inline-block bg-[#2D3B55] text-[#5B8DEF] px-3 py-1 rounded-md text-base">
                       LLM
                     </span>
@@ -346,7 +336,6 @@ export function PortfolioComponent() {
                   </div>
                 </Card>
 
-                {/* B2B Recycling Solution */}
                 <Card className="bg-[#1F2937] p-8 rounded-xl">
                   <div className="space-y-4">
                     <div className="flex justify-between items-start">
@@ -358,7 +347,6 @@ export function PortfolioComponent() {
                         <span className="text-gray-400 text-sm mt-1">Switzerland</span>
                       </div>
                     </div>
-                    {/* Search Engine Label */}
                     <span className="inline-block bg-[#2D3B55] text-[#5B8DEF] px-3 py-1 rounded-md text-base">
                       Search Engine
                     </span>
@@ -395,7 +383,6 @@ export function PortfolioComponent() {
                   </div>
                 </Card>
 
-                {/* Ottogi Food Product Discovery */}
                 <Card className="bg-[#1F2937] p-8 rounded-xl">
                   <div className="space-y-4">
                     <div className="flex justify-between items-start">
@@ -404,7 +391,6 @@ export function PortfolioComponent() {
                         Jul 2023
                       </span>
                     </div>
-                    {/* Project Labels */}
                     <div className="flex gap-2 flex-wrap">
                       <span className="inline-block bg-[#2D3B55] text-[#5B8DEF] px-3 py-1 rounded-md text-base">
                         LLM
@@ -445,16 +431,14 @@ export function PortfolioComponent() {
                   </div>
                 </Card>
 
-                {/* AWS Cloud Resume Challenge */}
                 <Card className="bg-[#1F2937] p-8 rounded-xl">
                   <div className="space-y-4">
                     <div className="flex justify-between items-start">
-                      <h3 className="text-2xl font-bold text-white">AWS-Cloud-Resume-Challenge educational content</h3>
+                      <h3 className="text-2xl font-bold text-white">AWS Cloud Resume Challenge educational content</h3>
                       <span className="bg-[#2D3B55] text-[#5B8DEF] px-4 py-1 rounded-md text-sm whitespace-nowrap">
                         Aug 2023
                       </span>
                     </div>
-                    {/* Project Label */}
                     <span className="inline-block bg-[#2D3B55] text-[#5B8DEF] px-3 py-1 rounded-md text-base">
                       Cloud&DevOps
                     </span>
@@ -491,7 +475,6 @@ export function PortfolioComponent() {
                   </div>
                 </Card>
 
-                {/* SearchWave */}
                 <Card className="bg-[#1F2937] p-8 rounded-xl">
                   <div className="space-y-4">
                     <div className="flex justify-between items-start">
@@ -500,7 +483,6 @@ export function PortfolioComponent() {
                         Sep 2023
                       </span>
                     </div>
-                    {/* Project Label */}
                     <span className="inline-block bg-[#2D3B55] text-[#5B8DEF] px-3 py-1 rounded-md text-base">
                       Search Engine
                     </span>
@@ -533,7 +515,6 @@ export function PortfolioComponent() {
                   </div>
                 </Card>
 
-                {/* ScanScribe */}
                 <Card className="bg-[#1F2937] p-8 rounded-xl">
                   <div className="space-y-4">
                     <div className="flex justify-between items-start">
@@ -542,7 +523,6 @@ export function PortfolioComponent() {
                         Aug 2023
                       </span>
                     </div>
-                    {/* Project Labels */}
                     <div className="flex gap-2">
                       <span className="inline-block bg-[#2D3B55] text-[#5B8DEF] px-3 py-1 rounded-md text-base">
                         OCR
@@ -580,7 +560,6 @@ export function PortfolioComponent() {
                   </div>
                 </Card>
 
-                {/* Digital Therapeutics */}
                 <Card className="bg-[#1F2937] p-8 rounded-xl">
                   <div className="space-y-4">
                     <div className="flex justify-between items-start">
@@ -589,7 +568,6 @@ export function PortfolioComponent() {
                         Jul 2023
                       </span>
                     </div>
-                    {/* Project Label */}
                     <span className="inline-block bg-[#2D3B55] text-[#5B8DEF] px-3 py-1 rounded-md text-base">
                       Game
                     </span>
@@ -621,7 +599,7 @@ export function PortfolioComponent() {
 
             <section id="skills" className="mb-16">
               <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">Technical Skills</h2>
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <Card className="bg-gray-800 border-gray-700">
                   <CardHeader>
                     <CardTitle className="text-xl text-purple-400">Programming Languages</CardTitle>
@@ -673,8 +651,7 @@ export function PortfolioComponent() {
             </section>
 
             <section id="achievements" className="mb-16">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Awards Column */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div>
                   <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">Awards</h2>
                   <div className="space-y-4">
@@ -730,7 +707,6 @@ export function PortfolioComponent() {
                   </div>
                 </div>
 
-                {/* Certifications Column */}
                 <div>
                   <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">Certifications</h2>
                   <div className="space-y-4">
